@@ -25,10 +25,8 @@ $cars = [
 ];
 
 foreach ($cars as $car => $data) {
-    $info = "";
-    foreach ($data as $key => $value) {
-        $info .= $value . " ";
-    }
     echo "CAR {$car}";
-    echo "<br/>" . $info . "<br/>";
+    echo "<br/>";
+    echo implode(" ", $data);
+    echo "<br/>";
 }
