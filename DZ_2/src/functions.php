@@ -60,3 +60,20 @@ function task3($num1, $num2)
         echo "Числа {$num1} и {$num2} не целые.";
     }
 }
+
+function task4()
+{
+    echo date('d.m.Y H:i');
+    echo strtotime('24.02.2016 00:00:00');
+}
+
+function task5()
+{
+    echo str_replace('К', '', 'Карл у Клары украл Кораллы');
+    echo str_replace('Две', 'Три', 'Две бутылки лимонада');
+}
+
+function task6($fileName)
+{
+    echo file_get_contents(__DIR__.'/'.$fileName);
+}
