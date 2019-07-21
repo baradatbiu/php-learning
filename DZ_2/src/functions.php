@@ -11,19 +11,20 @@ function task2($operand, ...$numbers)
 {
     $result = $numbers[0];
     $error = 'На 0 делить нельзя';
+    $countNums = count($numbers);
     switch ($operand) {
         case '+':
-            for ($i = 1; $i < count($numbers); $i++) {
+            for ($i = 1; $i < $countNums; $i++) {
                 $result += $numbers[$i];
             }
             break;
         case '-':
-            for ($i = 1; $i < count($numbers); $i++) {
+            for ($i = 1; $i < $countNums; $i++) {
                 $result -= $numbers[$i];
             }
             break;
         case '/':
-            for ($i = 1; $i < count($numbers); $i++) {
+            for ($i = 1; $i < $countNums; $i++) {
                 if ($numbers[$i] > 0) {
                     $result /= $numbers[$i];
                 } else {
@@ -32,7 +33,7 @@ function task2($operand, ...$numbers)
             }
             break;
         case '*':
-            for ($i = 1; $i < count($numbers); $i++) {
+            for ($i = 1; $i < $countNums; $i++) {
                 $result *= $numbers[$i];
             }
             break;
@@ -42,7 +43,7 @@ function task2($operand, ...$numbers)
 
 function task3($num1, $num2)
 {
-    if (is_int($num1) && is_int($num2)) {
+    if ($num1 > 0 && $num2 > 0) {
         echo "<table>";
         for ($i = 1; $i <= $num1; $i++) {
             echo "<tr>";
@@ -52,12 +53,8 @@ function task3($num1, $num2)
             echo "</tr>";
         }
         echo "</table>";
-    } elseif (!is_int($num1)) {
-        echo "Число {$num1} не целое.";
-    } elseif (!is_int($num1)) {
-        echo "Число {$num2} не целое.";
     } else {
-        echo "Числа {$num1} и {$num2} не целые.";
+        echo "Числа {$num1} и {$num2} должны быть целыми положительными.";
     }
 }
 
