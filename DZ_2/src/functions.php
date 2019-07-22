@@ -12,31 +12,24 @@ function task2($operand, ...$numbers)
     $result = $numbers[0];
     $error = 'На 0 делить нельзя';
     $countNums = count($numbers);
-    switch ($operand) {
-        case '+':
-            for ($i = 1; $i < $countNums; $i++) {
+    for ($i = 1; $i < $countNums; $i++) {
+        if ($operand === '/' && $numbers[$i] > 0) {
+            return $error;
+        }
+        switch ($operand) {
+            case '+':
                 $result += $numbers[$i];
-            }
-            break;
-        case '-':
-            for ($i = 1; $i < $countNums; $i++) {
+                break;
+            case '-':
                 $result -= $numbers[$i];
-            }
-            break;
-        case '/':
-            for ($i = 1; $i < $countNums; $i++) {
-                if ($numbers[$i] > 0) {
-                    $result /= $numbers[$i];
-                } else {
-                    return $error;
-                }
-            }
-            break;
-        case '*':
-            for ($i = 1; $i < $countNums; $i++) {
+                break;
+            case '/':
+                $result /= $numbers[$i];
+                break;
+            case '*':
                 $result *= $numbers[$i];
-            }
-            break;
+                break;
+        }
     }
     return $result;
 }
